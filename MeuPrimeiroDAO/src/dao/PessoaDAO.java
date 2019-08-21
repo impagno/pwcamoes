@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -36,6 +37,27 @@ public class PessoaDAO {
 		} catch (SQLException e) {
 			throw new PessoaException(e.getMessage());
 		}
+		
 		return pessoas;
+	}
+	
+	public void insert(Pessoa pessoa) throws PessoaException {
+		try {
+			Connection con = DriverManager.getConnection(connectionString);
+			
+			PreparedStatement stmt = con
+				.prepareStatement("insert into pessoa(nome,contato) values (?,?)");
+			
+			stmt.setString(1, pessoa.getNome());
+			stmt.setString(2, pessoa.getContato());
+
+			stmt.executeUpdate();
+			
+			stmt.close();
+			con.close();
+
+		} catch (SQLException e) {
+			throw new PessoaException(e.getMessage());
+		}		
 	}
 }
