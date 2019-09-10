@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Exemplo de JSP</title>
+	</head>
+	<body>
+		<!-- <form id="f" action="imprimenome.jsp" method="get">  -->
+		<form id="f" action="operacao" method="get">
+			<table>
+				<tr>
+					<td>
+						<label for="nome">Entre com o primeiro numero:</label>
+					</td>
+					<td>
+						<input name="num1" type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="nome">Entre com o segundo numero:</label>
+					</td>
+					<td>
+						<input name="num2" type="text"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<select name="operacao">
+							<option value="soma">Soma</option>
+							<option value="sub">Subtração</option>
+							<option value="multi">Multiplicação</option>
+							<option value="div">Divisão</option>
+						</select>
+					</td>
+					<td>
+						<input type="submit" value="Executar"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
